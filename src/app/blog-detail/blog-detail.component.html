@@ -1,0 +1,53 @@
+<div id="page" class="single">
+    <div id="fh5co-aside" style="background-image: url(../assets/images/image_2.jpg)" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="page-title">
+            <img src="../assets/images/person_1.jpg">
+            <span>{{blog.createdTime}}</span>
+            <h2 class="text-overflow">{{blog.title}}</h2>
+        </div>
+    </div>
+    <div id="fh5co-main-content">
+        <div class="fh5co-post">
+            <div class="fh5co-entry padding">
+                <div>
+                    {{blog.content}}
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<aside class="read-next">
+    <div class="fh5co-navigation">
+        <div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url(../assets/images/project-4.jpg)">
+            <div class="overlay"></div>
+
+            <a class="copy" href="#">
+                <div class="display-t">
+                    <div class="display-tc">
+                        <div>
+                            <span>Previous Post</span>
+                            <h2>How to be an affective web developer</h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="fh5co-cover next fh5co-cover-sm" style="background-image: url(../assets/images/project-5.jpg)">
+            <div class="overlay"></div>
+            <a class="copy" href="#">
+                <div class="display-t">
+                    <div class="display-tc">
+                        <div>
+                            <span>Next Post</span>
+                            <h2>How to be an affective web developer</h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</aside>
