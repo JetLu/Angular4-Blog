@@ -34,9 +34,11 @@ export class BlogService {
       .then(() => hero)
       .catch(this.handleError);
   }
-  create(name: string): Promise<Blog> {
+  
+
+  create(blogObj: string): Promise<Blog> {
     return this.http
-      .post(this.strUrl, JSON.stringify({ name: name }), { headers: this.headers })
+      .post(this.strUrl, blogObj, { headers: this.headers })
       .toPromise()
       .then(res => res.json().data as Blog)
       .catch(this.handleError);

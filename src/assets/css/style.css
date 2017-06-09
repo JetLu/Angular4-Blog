@@ -52,6 +52,55 @@ a {
     transition: 0.5s;
 }
 
+.text1-overflow {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    line-height: 1.5 !important;
+}
+
+.width-50 {
+    width: 50px !important
+}
+
+.width-100 {
+    width: 100px !important
+}
+
+.width-200 {
+    width: 200px !important
+}
+
+.width-140 {
+    width: 140px !important
+}
+
+.width-155 {
+    width: 155px !important
+}
+
+.width-60 {
+    width: 60px !important
+}
+
+.margin-top,
+.margin-top-1 {
+    margin-top: 8px !important
+}
+
+.margin-top-2 {
+    margin-top: 16px !important
+}
+
+.margin-top-3 {
+    margin-top: 24px !important
+}
+
+.margin-top-4 {
+    margin-top: 32px !important
+}
+
 a:hover,
 a:active,
 a:focus {

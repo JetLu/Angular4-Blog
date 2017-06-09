@@ -6,7 +6,7 @@
                     <img src="../assets/images/project-1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
                     <div>
                         <span class="fh5co-post-date">
-                            <span class="glyphicon glyphicon-time" style="font-size: 12px;padding: 1px 5px;"></span> {{comment.createdTime | date:"yyyy-MM-dd HH:mm:ss"}}
+                            <span class="glyphicon glyphicon-time" style="font-size: 12px;padding: 1px 5px;"></span> {{blog.createdTime | date:"yyyy-MM-dd HH:mm:ss"}}
                         </span>
                         <h2 class="text-overflow"><a [routerLink]="['/details',blog.id]">{{blog.title}}</a></h2>
                         <p class="content-overflow">{{blog.content}}</p>
