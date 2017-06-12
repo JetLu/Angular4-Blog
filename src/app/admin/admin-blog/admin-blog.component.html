@@ -1,3 +1,39 @@
-<p>
-  admin-blog works!
-</p>
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static'}" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">新建blog</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" #blogForm="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">标题</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="title" name="title" [(ngModel)]="blogModel.title" #title="ngModel" required>
+                            <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+                                <p *ngIf="title.errors?.required">昵称不能为空</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="content" class="col-sm-2 control-label">内容</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="content" rows="10" name="content" [(ngModel)]="blogModel.content" #content="ngModel" required></textarea>
+                            <div [hidden]="content.valid || content.pristine" class="alert alert-danger">
+                                <p *ngIf="content.errors?.required">内容不能为空</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button (click)="add(blogForm);blogForm.reset()" [disabled]="!blogForm.form.valid" class="btn btn-default">确定</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

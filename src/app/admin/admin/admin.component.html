@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-sm-12 margin-top">
             <div class="pull-right">
-                <demo-modal-child (onParentEvent)="onParentEvent()"></demo-modal-child>
+                <button class="btn btn-primary" (click)="demomodal.showChildModal({})"><i class="ion-plus m-right-xs"></i>发表blog</button>
+                <demo-modal-child (onParentEvent)="onParentEvent()" #demomodal></demo-modal-child>
             </div>
         </div>
     </div>
@@ -17,6 +18,7 @@
                         <th>发表人</th>
                         <th>浏览数量</th>
                         <th style="width:30%">blog内容</th>
+                        <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +29,9 @@
                         <td>{{blog.author}}</td>
                         <td>{{blog.viewCount}}</td>
                         <td>{{blog.content}}</td>
+                        <td>
+                            <button type="button" class="btn btn-default" (click)="demomodal.showChildModal(blog)">编辑</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

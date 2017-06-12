@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { adminRouting } from './admin-routing.module'
 import { AdminComponent } from './admin.component'
-import { ModalModule } from 'ngx-bootstrap/modal';
-
-
-import { DemoModalChildComponent } from '../demo-modal-child/demo-modal-child.component';
-
-
-import { StaticModalComponent } from '../static-modal/static-modal.component';
-
-
+import { AdminBlogComponent } from '../admin-blog/admin-blog.component';
 
 @NgModule({
   imports: [
@@ -21,6 +14,6 @@ import { StaticModalComponent } from '../static-modal/static-modal.component';
     FormsModule,
     ModalModule.forRoot()
   ],
-  declarations: [AdminComponent, DemoModalChildComponent,StaticModalComponent]
+  declarations: [AdminComponent, AdminBlogComponent]
 })
 export class AdminModule { }
