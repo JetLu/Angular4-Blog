@@ -18,7 +18,7 @@ export class BlogService {
   }
 
   //依据id获取blog
-  getBlog(id: number) {
+  getBlog(id: Number) {
     const url = `${this.strUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
@@ -26,6 +26,7 @@ export class BlogService {
       .catch(this.handleError);
   }
 
+  // 修改blog
   update(hero: Blog): Promise<Blog> {
     const url = `${this.strUrl}/${hero.id}`;
     return this.http
@@ -34,8 +35,8 @@ export class BlogService {
       .then(() => hero)
       .catch(this.handleError);
   }
-  
 
+  // 添加blog
   create(blogObj: string): Promise<Blog> {
     return this.http
       .post(this.strUrl, blogObj, { headers: this.headers })
@@ -44,7 +45,7 @@ export class BlogService {
       .catch(this.handleError);
   }
 
-  delete(id: number): Promise<void> {
+  delete(id: Number): Promise<void> {
     const url = `${this.strUrl}/${id}`;
     return this.http.delete(url, { headers: this.headers })
       .toPromise()

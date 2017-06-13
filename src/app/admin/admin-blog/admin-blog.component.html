@@ -3,9 +3,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title pull-left">新建blog</h4>
-                <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideBlogFormModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" #blogForm="ngForm" novalidate>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button (click)="add(blogForm);blogForm.reset()" [disabled]="!blogForm.form.valid" class="btn btn-default">确定</button>
+                            <button (click)="addOrUpdateBlog(blogModel);blogForm.reset()" [disabled]="!blogForm.form.valid" class="btn btn-default">确定</button>
                         </div>
                     </div>
                 </form>

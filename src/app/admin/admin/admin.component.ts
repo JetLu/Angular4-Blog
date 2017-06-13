@@ -31,4 +31,11 @@ export class AdminComponent implements OnInit {
       this.blogArr = result;
     })
   }
+
+  // 删除记录
+  removeAdminForm(id: Number): void {
+    this.blogService.delete(id).then(result => {
+      this.getBlogList();
+    });
+  }
 }

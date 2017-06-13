@@ -6,7 +6,7 @@ import { NgForm } from '@angular/forms';
 import { BlogService } from '../../service/blog.service'
 
 @Component({
-  selector: 'app-admin-blog',
+  selector: 'admin-form-blog',
   templateUrl: './admin-blog.component.html',
   styleUrls: ['./admin-blog.component.css']
 })
@@ -22,29 +22,49 @@ export class AdminBlogComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(theForm: NgForm) {
-    let blog = theForm.value;
-    let commentObj = {
-      id: (new Date()).valueOf(),
-      title: blog.title,
-      content: blog.content,
-      createdTime: new Date(),
-      author: 'admin',
-      viewCount: 1
-    }
+  // 添加blog信息
+  addOrUpdateBlog(blog: Blog) {
+    //修改记录
+    if (blog.id) {
+      this.blogService.update(blog).then(result => {
+        this.hideBlogFormModal();
+        this.onParentEvent.emit();
+      });
+    } else {
+      // 创建记录
+      let commentObj = {
+        id: (new Date()).valueOf(),
+        title: blog.title,
+        content: blog.content,
+        createdTime: new Date(),
+        author: 'admin',
+        viewCount: 1
+      }
 
-    this.blogService.create(JSON.stringify(commentObj)).then(result => {
-      this.hideChildModal();
-      this.onParentEvent.emit();
-    });
+      this.blogService.create(JSON.stringify(commentObj)).then(result => {
+        this.hideBlogFormModal();
+        this.onParentEvent.emit();
+      });
+    }
   }
 
-  public showChildModal(blog: Blog): void {
-    this.blogModel = blog;
+  // modal显示
+  public adminForm(id: Number): void {
+    //如果是
+    if (id) {
+      debugger
+      this.blogService.getBlog(id).then(result => {
+        this.blogModel = result;
+      })
+    }
+    else {
+      this.blogModel = new Blog();
+    }
     this.childModal.show();
   }
 
-  public hideChildModal(): void {
+  // 隐藏modal
+  public hideBlogFormModal(): void {
     this.childModal.hide();
   }
 }
