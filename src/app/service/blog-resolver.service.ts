@@ -40,6 +40,51 @@ export class BlogDetailResolverService implements Resolve<Blog> {
   }
 }
 
+// 获取上一条记录
+@Injectable()
+export class PreBlogResolverService implements Resolve<Blog> {
+
+  preBlog: Blog; //上一条记录
+  constructor(private blogService: BlogService, private router: Router) { }
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Blog> {
+    let blogId = route.params["id"]
+
+    return this.blogService.getBlogs().then(result => {
+      let preBlogArr = result.filter(x => x.id > blogId);
+      if (preBlogArr.length > 0) {
+        this.preBlog = preBlogArr[0];
+      }
+      else {
+        this.preBlog = new Blog();
+      }
+      return this.preBlog;
+    })
+  }
+}
+
+
+// 获取下一条记录
+@Injectable()
+export class NextBlogResolverService implements Resolve<Blog> {
+  nextBlog: Blog = new Blog();//下一条记录
+  constructor(private blogService: BlogService, private router: Router) { }
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Blog> {
+    let blogId = route.params["id"]
+    return this.blogService.getBlogs().then(result => {
+      let nextblogArr = result.filter(x => x.id < blogId);
+      if (nextblogArr.length > 0) {
+
+        return nextblogArr[nextblogArr.length - 1];
+      }
+      else {
+        return new Blog();
+      }
+    })
+  }
+}
+
 @Injectable()
 export class BlogCommentResolverService implements Resolve<Comment> {
   constructor(private commentService: CommentService, private router: Router) { }

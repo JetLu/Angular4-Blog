@@ -48,11 +48,11 @@ export class AdminBlogComponent implements OnInit {
     }
   }
 
+  // 创建或者编辑
   // modal显示
   public adminForm(id: Number): void {
     //如果是
     if (id) {
-      debugger
       this.blogService.getBlog(id).then(result => {
         this.blogModel = result;
       })

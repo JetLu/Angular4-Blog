@@ -17,6 +17,7 @@ export class BlogService {
       .catch(this.handleError);
   }
 
+
   //依据id获取blog
   getBlog(id: Number) {
     const url = `${this.strUrl}/${id}`;

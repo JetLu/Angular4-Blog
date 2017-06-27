@@ -6,7 +6,7 @@ import { BlogDetailModule } from '../blog-detail/blog-detail.module';
 
 import { AdminModule } from '../admin/admin/admin.module'
 
-import { BlogResolverService, BlogDetailResolverService, BlogCommentResolverService } from '../service/blog-resolver.service';
+import { BlogResolverService, BlogDetailResolverService, BlogCommentResolverService, NextBlogResolverService, PreBlogResolverService } from '../service/blog-resolver.service';
 
 // 获取blogmodule
 export function loadBlogsModule() { return BlogsModule; }
@@ -22,9 +22,9 @@ export const routes: Routes = [
   {
     path: 'admin',
     loadChildren: loadAdminModule,
-      resolve: {
-        blogList: BlogResolverService
-      }
+    resolve: {
+      blogList: BlogResolverService
+    }
   },
   {
     path: 'home',
@@ -48,7 +48,9 @@ export const routes: Routes = [
     path: 'details/:id',
     loadChildren: loadBlogDetailModule,
     resolve: {
-      blog: BlogDetailResolverService
+      blog: BlogDetailResolverService,
+      preBlog: PreBlogResolverService,
+      nextBlog: NextBlogResolverService
     }
   }
 ];
@@ -56,7 +58,7 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [BlogResolverService, BlogDetailResolverService, BlogCommentResolverService]
+  providers: [BlogResolverService, BlogDetailResolverService, NextBlogResolverService, PreBlogResolverService, BlogCommentResolverService]
 })
 export class AppRoutingModule { }
 

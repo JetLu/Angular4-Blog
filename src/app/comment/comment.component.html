@@ -1,8 +1,8 @@
 <div class="fh5co-post">
-    <div class="fh5co-entry padding" style="margin-top: 60px;">
+    <div class="fh5co-entry padding" style="margin-top: 30px;">
         <div class="fh5co-post">
             <div class="fh5co-entry" *ngFor="let comment of commentArr">
-                <div class="padding" style="border: solid rgba(158, 158, 158, 0.34) 1px;">
+                <div class="padding" style="border-top: solid rgba(158, 158, 158, 0.34) 1px;">
                     <div><span class="glyphicon glyphicon-user" style="font-size: 12px;padding: 1px 5px;"></span>{{comment.reviewer}}</div>
                     <div>
                         <span class="fh5co-post-date">
@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="fh5co-post">
-    <div class="fh5co-entry padding" style="margin-top: 60px;">
+    <div class="fh5co-entry padding" style="margin-top: 30px;">
         <form class="form-horizontal" #commentForm="ngForm" novalidate>
             <div class="form-group">
                 <label for="nickName" class="col-sm-2 control-label">昵称</label>

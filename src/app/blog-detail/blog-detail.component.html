@@ -23,30 +23,47 @@
     <div class="fh5co-navigation">
         <div class="fh5co-cover prev fh5co-cover-sm" style="background-image: url(../assets/images/project-4.jpg)">
             <div class="overlay"></div>
-            <a class="copy" href="#">
+            <a *ngIf="preBlog.id" class="copy" [routerLink]="['/details',preBlog.id]">
                 <div class="display-t">
                     <div class="display-tc">
                         <div>
                             <span>Previous Post</span>
-                            <h2>How to be an affective web developer</h2>
+                            <h2>{{preBlog.title}}</h2>
                         </div>
                     </div>
                 </div>
             </a>
-
+            <div class="copy">
+                <div class="display-t" *ngIf="!preBlog.id">
+                    <div class="display-tc">
+                        <div>
+                            <h2>没有上一篇了</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="fh5co-cover next fh5co-cover-sm" style="background-image: url(../assets/images/project-5.jpg)">
             <div class="overlay"></div>
-            <a class="copy" href="#">
+            <a class="copy" *ngIf="nextBlog.id" [routerLink]="['/details',nextBlog.id]">
                 <div class="display-t">
-                    <div class="display-tc">
+                    <div class="display-tc" *ngIf="nextBlog">
                         <div>
                             <span>Next Post</span>
-                            <h2>How to be an affective web developer</h2>
+                            <h2>{{nextBlog.title}}</h2>
                         </div>
                     </div>
                 </div>
             </a>
+            <div class="copy">
+                <div class="display-t" *ngIf="!nextBlog.id">
+                    <div class="display-tc">
+                        <div>
+                            <h2>没有下一篇了</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </aside>

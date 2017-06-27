@@ -23,11 +23,6 @@ export class CommentComponent implements OnInit {
       this.postId = + params['id']
     });
 
-  /*  this.route.params.subscribe(params => {
-      let postIdqq = + params['id']
-      console.log(postIdqq)
-    });*/
-
     this.route.data
       .subscribe((data: { commentList: Comment[] }) => {
         this.commentArr = data.commentList;
