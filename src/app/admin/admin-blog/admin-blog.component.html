@@ -2,7 +2,8 @@
     <div class="modal-dialog modal-sm" style="width: 40%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title pull-left">新建blog</h4>
+                <h4 class="modal-title pull-left" *ngIf="!blogModel.id">新建blog</h4>
+                <h4 class="modal-title pull-left" *ngIf="blogModel.id">修改blog</h4>
                 <button type="button" class="close pull-right" aria-label="Close" (click)="hideBlogFormModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
